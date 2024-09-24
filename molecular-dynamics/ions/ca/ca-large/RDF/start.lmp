@@ -1,0 +1,20 @@
+echo both
+
+include		in.temp
+include		in.pressure
+include		in.seed
+units		metal
+atom_style	atomic
+include		in.box
+include 	in.setup
+
+timer           timeout 47:55:00 every 1000
+
+comm_modify 	cutoff	20.0
+
+compute 	1 all rdf 200 1 3 cutoff 10.0
+fix 		1 all ave/time 1 1 1 c_1[*] file CaO.rdf ave running mode vector
+compute 	2 all rdf 200 1 4 cutoff 10.0
+fix 		2 all ave/time 1 1 1 c_2[*] file CaH.rdf ave running mode vector
+
+rerun           ../dump.water dump x y z

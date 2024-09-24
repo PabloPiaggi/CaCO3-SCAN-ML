@@ -1,0 +1,27 @@
+echo both
+
+include		in.temp
+include		in.pressure
+include		in.seed
+units		metal
+atom_style	atomic
+include		in.box
+include 	in.setup
+
+comm_style  	tiled
+balance 	1.1 rcb
+
+timer           timeout 55:00:00 every 1000
+
+group 		typeCa type 1
+group 		typeC type 2
+group 		typeO type 3
+group 		typeH type 4
+
+fix 		1 typeCa ave/histo 1 1 1 2.9156273815883083 59.08437261840291 1000 z file histoCa.txt ave running mode vector
+fix 		2 typeC ave/histo 1 1 1 2.9156273815883083 59.08437261840291 1000 z file histoC.txt ave running mode vector
+fix 		3 typeO ave/histo 1 1 1 2.9156273815883083 59.08437261840291 1000 z file histoO.txt ave running mode vector
+fix 		4 typeH ave/histo 1 1 1 2.9156273815883083 59.08437261840291 1000 z file histoH.txt ave running mode vector
+
+rerun 		../dump.water dump x y z
+

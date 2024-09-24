@@ -1,0 +1,16 @@
+echo both
+
+include		in.temp
+include		in.pressure
+include		in.seed
+units		metal
+atom_style	atomic
+include		in.box
+include 	in.setup
+
+timer           timeout 23:55:00 every 1000
+
+fix             thermo_print all print 1000 "$(step) $(enthalpy) $(vol)" file thermo.txt screen no title "#step enthalpy vol"
+fix		1 all plumed plumedfile plumed.dat outfile plumed.out
+
+rerun		../dump.water dump x y z

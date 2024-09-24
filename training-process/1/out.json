@@ -1,0 +1,125 @@
+{
+    "model": {
+        "type_map": [
+            "Ca",
+            "C",
+            "O",
+            "H"
+        ],
+        "descriptor": {
+            "type": "se_e2_a",
+            "sel": [
+                30,
+                30,
+                60,
+                90
+            ],
+            "rcut_smth": 3.0,
+            "rcut": 6.0,
+            "neuron": [
+                25,
+                50,
+                100
+            ],
+            "axis_neuron": 16,
+            "seed": 25875,
+            "activation_function": "tanh",
+            "resnet_dt": false,
+            "type_one_side": false,
+            "precision": "default",
+            "trainable": true,
+            "exclude_types": [],
+            "set_davg_zero": false
+        },
+        "fitting_net": {
+            "neuron": [
+                120,
+                120,
+                120
+            ],
+            "resnet_dt": true,
+            "seed": 25875,
+            "type": "ener",
+            "numb_fparam": 0,
+            "numb_aparam": 0,
+            "activation_function": "tanh",
+            "precision": "default",
+            "trainable": true,
+            "rcond": 0.001,
+            "atom_ener": []
+        },
+        "data_stat_nbatch": 10,
+        "data_stat_protect": 0.01
+    },
+    "learning_rate": {
+        "start_lr": 0.002,
+        "decay_steps": 5000,
+        "scale_by_worker": "linear",
+        "type": "exp",
+        "stop_lr": 1e-08
+    },
+    "loss": {
+        "start_pref_e": 0.02,
+        "limit_pref_e": 1,
+        "start_pref_f": 1000,
+        "limit_pref_f": 100,
+        "start_pref_v": 0,
+        "limit_pref_v": 0,
+        "type": "ener",
+        "start_pref_ae": 0.0,
+        "limit_pref_ae": 0.0,
+        "start_pref_pf": 0.0,
+        "limit_pref_pf": 0.0,
+        "enable_atom_ener_coeff": false
+    },
+    "training": {
+        "seed": 25875,
+        "disp_file": "lcurve.out",
+        "disp_freq": 100,
+        "save_freq": 20000,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "tensorboard": false,
+        "tensorboard_log_dir": "log",
+        "profiling": false,
+        "profiling_file": "timeline.json",
+        "validation_data": {
+            "systems": [
+                "../../../collect-data/caco3",
+                "../../../collect-data/water"
+            ],
+            "batch_size": "auto",
+            "set_prefix": "set",
+            "auto_prob": "prob_sys_size",
+            "sys_probs": null,
+            "numb_btch": 1
+        },
+        "training_data": {
+            "systems": [
+                "../../../collect-data/4caco3",
+                "../../../collect-data/acute",
+                "../../../collect-data/aragonite",
+                "../../../collect-data/ca",
+                "../../../collect-data/caco3",
+                "../../../collect-data/caco3-protonation",
+                "../../../collect-data/calcite",
+                "../../../collect-data/co3",
+                "../../../collect-data/cryst-iceIc",
+                "../../../collect-data/cryst-iceIh",
+                "../../../collect-data/flat",
+                "../../../collect-data/interface-solution",
+                "../../../collect-data/monohydrate",
+                "../../../collect-data/obtuse",
+                "../../../collect-data/water"
+            ],
+            "auto_prob": "prob_uniform",
+            "batch_size": "auto",
+            "set_prefix": "set",
+            "sys_probs": null
+        },
+        "numb_steps": 2000000,
+        "enable_profiler": false,
+        "tensorboard_freq": 1
+    }
+}

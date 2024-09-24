@@ -1,0 +1,4 @@
+# This is a deepmd model
+
+pair_style 	deepmd ../../../../iter-76/train-models/1/frozen_model_1_compressed.pb ../../../../iter-76/train-models/2/frozen_model_2_compressed.pb ../../../../iter-76/train-models/3/frozen_model_3_compressed.pb ../../../../iter-76/train-models/4/frozen_model_4_compressed.pb out_file md.out out_freq ${out_freq2}
+pair_coeff	* *

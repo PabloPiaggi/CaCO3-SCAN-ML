@@ -1,0 +1,76 @@
+PLUMED: PLUMED is starting
+PLUMED: Version: 2.8.0 (git: Unknown) compiled on Jul  1 2022 at 02:01:18
+PLUMED: Please cite these papers when using PLUMED [1][2]
+PLUMED: For further information see the PLUMED web page at http://www.plumed.org
+PLUMED: Root: /home/ppiaggi/.conda/envs/deepmd-2.1.3/lib/plumed
+PLUMED: For installed feature, see /home/ppiaggi/.conda/envs/deepmd-2.1.3/lib/plumed/src/config/config.txt
+PLUMED: Molecular dynamics engine: LAMMPS
+PLUMED: Precision of reals: 8
+PLUMED: Running over 1 node
+PLUMED: Number of threads: 1
+PLUMED: Cache line size: 512
+PLUMED: Number of atoms: 15962
+PLUMED: File suffix: 
+PLUMED: FILE: plumed.dat
+PLUMED: Action DISTANCE
+PLUMED:   with label d
+PLUMED:   between atoms 1 2
+PLUMED:   using periodic boundary conditions
+PLUMED: Action OPES_METAD
+PLUMED:   with label opes
+PLUMED:   with arguments d
+PLUMED:   added component to this action:  opes.bias 
+PLUMED:   multiple time step 2 [3]
+PLUMED:   added component to this action:  opes.rct 
+PLUMED:   added component to this action:  opes.zed 
+PLUMED:   added component to this action:  opes.neff 
+PLUMED:   added component to this action:  opes.nker 
+PLUMED:   temperature = 330
+PLUMED:   beta = 0.364462
+PLUMED:   depositing new kernels with PACE = 500
+PLUMED:   expected BARRIER is 30
+PLUMED:   using target distribution with BIASFACTOR gamma = 10.9339
+PLUMED:   adaptive SIGMA will be used, with ADAPTIVE_SIGMA_STRIDE = 5000
+PLUMED:     thus the first x kernel depositions will be skipped, x = ADAPTIVE_SIGMA_STRIDE/PACE = 10
+PLUMED:   kernels are truncated with KERNELS_CUTOFF = 4.90602
+PLUMED:   the value at cutoff is = 5.93575e-06
+PLUMED:   regularization EPSILON = 5.93575e-06
+PLUMED:   kernels will be compressed when closer than COMPRESSION_THRESHOLD = 1
+PLUMED:   Bibliography: [4][5]
+PLUMED: Action UPPER_WALLS
+PLUMED:   with label uwall
+PLUMED:   with arguments d
+PLUMED:   added component to this action:  uwall.bias 
+PLUMED:   multiple time step 2 [3]
+PLUMED:   at 2.000000
+PLUMED:   with an offset 0.000000
+PLUMED:   with force constant 2000.000000
+PLUMED:   and exponent 2.000000
+PLUMED:   rescaled 1.000000
+PLUMED:   added component to this action:  uwall.force2 
+PLUMED: Action PRINT
+PLUMED:   with label @3
+PLUMED:   with stride 100
+PLUMED:   with arguments d opes.bias opes.rct opes.zed opes.neff opes.nker uwall.bias uwall.force2
+PLUMED:   on file COLVAR
+PLUMED:   with format  %f
+PLUMED: END FILE: plumed.dat
+PLUMED: Timestep: 0.000500
+PLUMED: KbT has not been set by the MD engine
+PLUMED: It should be set by hand where needed
+PLUMED: Relevant bibliography:
+PLUMED:   [1] The PLUMED consortium, Nat. Methods 16, 670 (2019)
+PLUMED:   [2] Tribello, Bonomi, Branduardi, Camilloni, and Bussi, Comput. Phys. Commun. 185, 604 (2014)
+PLUMED:   [3] Ferrarotti, Bottaro, Perez-Villa, and Bussi, J. Chem. Theory Comput. 11, 139 (2015)
+PLUMED:   [4] M. Invernizzi and M. Parrinello, J. Phys. Chem. Lett. 11, 2731-2736 (2020)
+PLUMED:   [5] M. Invernizzi and M. Parrinello, preprint arXiv:2201.09950 (2021)
+PLUMED: Please read and cite where appropriate!
+PLUMED: Finished setup
+PLUMED:                                               Cycles        Total      Average      Minimum      Maximum
+PLUMED:                                                    1   844.215071   844.215071   844.215071   844.215071
+PLUMED: 1 Prepare dependencies                      23926001    27.098048     0.000001     0.000000     0.000030
+PLUMED: 2 Sharing data                              11963001   367.838318     0.000031     0.000015     0.002276
+PLUMED: 3 Waiting for data                          11963001    27.485325     0.000002     0.000001     0.000681
+PLUMED: 4 Calculating (forward loop)                11963001   200.538536     0.000017     0.000008     0.000288
+PLUMED: 5 Applying (backward loop)                  11963001    35.440793     0.000003     0.000002     0.000442
+PLUMED: 6 Update                                    11963001    14.064898     0.000001     0.000000     0.012084

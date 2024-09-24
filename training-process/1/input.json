@@ -1,0 +1,89 @@
+	{
+	    "_comment": "that's all",
+	    "model": {
+		"type_map":	["Ca","C","O","H"],
+		"descriptor": {
+		    "type": "se_a",
+		    "sel": [30, 30, 60, 90],
+		    "rcut_smth": 3.0,
+		    "rcut": 6.0,
+		    "neuron": [
+			25,
+			50,
+			100
+		    ],
+		    "axis_neuron": 16,
+		    "seed": 25875,
+		    "_comment": " that's all"
+		},
+		"fitting_net": {
+		    "neuron": [
+			120,
+			120,
+			120
+		    ],
+		    "resnet_dt": true,
+		    "seed": 25875,
+		    "_comment": " that's all"
+		},
+		"_comment": " that's all"
+	    },
+	    "learning_rate": {
+		"start_lr": 0.002,
+		"decay_steps": 5000,
+		"_comment": "that's all"
+	    },
+	    "loss": {
+		"start_pref_e": 0.02,
+		"limit_pref_e": 1,
+		"start_pref_f": 1000,
+		"limit_pref_f": 100,
+		"start_pref_v": 0,
+		"limit_pref_v": 0,
+		"_comment": " that's all"
+	    },
+	    "training": {
+		"stop_batch": 2000000,
+		"seed": 25875,
+		"_comment": "that's all",
+		"disp_file": "lcurve.out",
+		"disp_freq": 100,
+		"numb_test": 5,
+		"save_freq": 20000,
+		"save_ckpt": "model.ckpt",
+		"disp_training": true,
+		"time_training": true,
+		"tensorboard": false,
+		"tensorboard_log_dir": "log",
+		"profiling": false,
+		"profiling_file": "timeline.json",
+		"validation_data": {
+		    "systems": [
+		      	"../../training-set/caco3",
+			"../../training-set/water"
+		    ],
+		    "batch_size":	"auto"
+		},
+		"training_data": {
+		    "systems": [
+			"../../training-set/4caco3",
+		      	"../../training-set/acute",
+		      	"../../training-set/aragonite",
+		      	"../../training-set/ca",
+		      	"../../training-set/caco3",
+		      	"../../training-set/caco3-protonation",
+		      	"../../training-set/calcite",
+		      	"../../training-set/co3",
+		      	"../../training-set/cryst-iceIc",
+		      	"../../training-set/cryst-iceIh",
+			"../../training-set/flat",
+			"../../training-set/interface-solution",  
+			"../../training-set/monohydrate",  
+			"../../training-set/obtuse",  
+			"../../training-set/water"
+		    ],
+		    "auto_prob": "prob_uniform",
+		    "batch_size":	"auto"
+		}
+	    }
+	}

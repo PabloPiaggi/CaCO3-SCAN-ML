@@ -1,0 +1,4 @@
+# This is a deepmd model
+
+pair_style 	deepmd ../../../../../../iter-76/train-models/1/frozen_model_1_compressed.pb
+pair_coeff	* *

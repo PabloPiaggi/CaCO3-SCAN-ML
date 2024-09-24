@@ -1,0 +1,3 @@
+dump            myDump all atom ${out_freq2} dump.water
+dump            myDump2 all atom 20000 dump2.water
+dump            myDumpDCD all dcd ${out_freq2} dump.dcd

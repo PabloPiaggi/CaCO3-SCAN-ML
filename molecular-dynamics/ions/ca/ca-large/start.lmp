@@ -1,0 +1,37 @@
+echo both
+
+include		in.temp
+include		in.pressure
+include		in.seed
+units		metal
+atom_style	atomic
+include		in.box
+include 	in.setup
+
+timer           timeout 143:55:00 every 1000
+
+# Equilibration
+
+minimize	1.e-5 1.e-10 1000 10000
+
+fix             2 all nph iso ${pressure} ${pressure} ${pressureDamp}
+fix             3 all temp/csvr ${temperature} ${temperature} ${tempDamp} ${seed}
+fix             4 all momentum 10000 linear 1 1 1 rescale
+
+velocity 	all create ${temperature} ${seed} dist gaussian
+
+run             20000
+
+# Production
+
+reset_timestep	0
+
+include         in.dump
+
+fix             thermo_print all print 10 "$(step) $(enthalpy) $(vol)" file thermo.txt screen no title "#step enthalpy vol"
+
+run             20000000 # 10. ns
+
+write_data	data.final
+
+write_restart   restart.lmp
