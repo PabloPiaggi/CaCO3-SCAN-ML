@@ -1,6 +1,6 @@
 # Ab initio machine learning simulation of calcium carbonate from aqueous solutions to the solid state
-
 ### Authors: Pablo M. Piaggi, Julian D. Gale, and Paolo Raiteri
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13834650.svg)](https://doi.org/10.5281/zenodo.13834650)
 
 Analysis and input files to reproduce simulations of manuscript "Ab initio machine learning simulation of calcium carbonate from aqueous solutions to the solid state" by Piaggi, Gale, and Raiteri
 
